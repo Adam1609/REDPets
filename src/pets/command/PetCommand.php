@@ -5,6 +5,7 @@ namespace pets\command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pets\main;
+use pocketmine\utils\TextFormat as TF;
 
 class PetCommand extends PluginCommand {
 
@@ -32,6 +33,17 @@ class PetCommand extends PluginCommand {
 					$this->main->getPet($sender->getName())->setNameTag($name);
 					$sender->sendMessage("Set Name to ".$name);
 				}
+				return true;
+			break;
+			case "help":
+				if($sender->hasPermission('pet.command.help')){
+				$sender->sendMessage("§e======PetHelp======");
+				$sender->sendMessage("§b/pets to Spawn your Pet");
+				$sender->sendMessage("§b/pets type [type]");
+				$sender->sendMessage("§b/pets name [petname]");
+				return true;
+				}else{$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
+					    }
 				return true;
 			break;
 			case "type":
@@ -86,6 +98,7 @@ class PetCommand extends PluginCommand {
 							}else{
 								$sender->sendMessage("You do not have permission for blaze pet!");
 								return true;
+							}
 						break;
 						case "rabbit":
 							if ($sender->hasPermission("pets.type.rabbit")){
@@ -95,13 +108,34 @@ class PetCommand extends PluginCommand {
 							}else{
 								$sender->sendMessage("You do not have permission for rabbit pet!");
 								return true;
-							}	
+							}
+						break;
+						case "bat":
+							if ($sender->hasPermission("pets.type.bat")){
+								$this->main->changePet($sender, "BatPet");
+								$sender->sendMessage("Your pet has changed to Bat!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for bat pet!");
+								return true;
+							}
+						break;
+						case "siverfish":
+							if ($sender->hasPermission("pets.type.silerfish")){
+								$this->main->changePet($sender, "SiverFishPet");
+								$sender->sendMessage("Your pet has changed to SiverFish!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for SiverFish pet!");
+								return true;
+							}
+						break;
 							}
 							}
 							break;
 						default:
 							$sender->sendMessage("/pet type [type]");
-							$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma");
+							$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silerfish");
 						return true;
 					}
 				}
