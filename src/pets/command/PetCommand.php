@@ -122,11 +122,11 @@ class PetCommand extends PluginCommand {
 						break;
 						case "siverfish":
 							if ($sender->hasPermission("pets.type.silverfish")){
-								$this->main->changePet($sender, "SiverFishPet");
-								$sender->sendMessage("Your pet has changed to SiverFish!");
+								$this->main->changePet($sender, "SilverfishPet");
+								$sender->sendMessage("Your pet has changed to SilverFish!");
 								return true;
 							}else{
-								$sender->sendMessage("You do not have permission for SiverFish pet!");
+								$sender->sendMessage("You do not have permission for Sliverfish pet!");
 								return true;
 							}
 						break;
