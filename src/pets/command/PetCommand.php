@@ -5,7 +5,7 @@ namespace pets\command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pets\main;
-use pocketmine\utils\TextFormat as TF;
+use pocketmine\utils\TextFormat;
 
 class PetCommand extends PluginCommand {
 
@@ -37,10 +37,10 @@ class PetCommand extends PluginCommand {
 			break;
 			case "help":
 				if($sender->hasPermission('pet.command.help')){
-				$sender->sendMessage("§e======PetHelp======");
-				$sender->sendMessage("§b/pets to Spawn your Pet");
-				$sender->sendMessage("§b/pets type [type]");
-				$sender->sendMessage("§b/pets name [petname]");
+				$sender->sendMessage(TextFormat::Yellow."======PetHelp======");
+				$sender->sendMessage(TextFormat::AQUA."/pets to Spawn your Pet");
+				$sender->sendMessage(TextFormat::AQUA."/pets type [type]");
+				$sender->sendMessage(TextFormat::AQUA."/pets name [petname]");
 				return true;
 				}else{$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
 					    }
@@ -118,10 +118,21 @@ class PetCommand extends PluginCommand {
 							}else{
 								$sender->sendMessage("You do not have permission for bat pet!");
 								return true;
+							}
+						break;
+						case "silverfish":
+							if ($sender->hasPermission("pets.type.silverfish")){
+								$this->main->changePet($sender, "SiverfishPet");
+								$sender->sendMessage("Your pet has changed to SiverFish!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for SiverFish pet!");
+								return true;
+							}
 						break;
 						case "ocelot":
 						case "cat":
-							if ($sender->hasPermission("pets.type.cat")){
+							if ($sender->hasPermission("pets.type.ocelot")){
 								$this->main->changePet($sender, "OcelotPet");
 								$sender->sendMessage("Your pet has changed to Ocelot!");
 								return true;
@@ -141,3 +152,4 @@ class PetCommand extends PluginCommand {
 				}
 		}
 		return true;
+
