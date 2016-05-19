@@ -37,3 +37,6 @@ permissions:
  pets.type.silverfish:
   default: op
   description: Pets command
+pets.type.ocelot:
+  default: op
+  description: Pets command
