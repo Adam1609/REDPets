@@ -10,7 +10,7 @@ class SilverfishPet extends Pets {
     public $height = 0.7;
 
 	public function getName() {
-		return "Silverfish";
+		return "SilverfishPet";
 	}
 
 	public function getSpeed() {
