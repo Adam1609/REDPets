@@ -37,7 +37,6 @@ class main extends PluginBase implements Listener {
 		Entity::registerEntity(MagmaPet::class);
 		Entity::registerEntity(RabbitPet::class);
 		Entity::registerEntity(BatPet::class);
-		Entity::registerEntity(SilverfishPet::class);
 		Entity::registerEntity(OcelotPet::class);
 		//Entity::registerEntity(BlockPet::class);
 		//$server->getScheduler()->scheduleRepeatingTask(new task\PetsTick($this), 20*60);//run each minute for random pet messages
@@ -101,9 +100,6 @@ class main extends PluginBase implements Listener {
 				
  				case "BatPet":
 				break;
-				
- 				case "SilverfishPet":
- 				break;
  				
  				case "OcelotPet":
  				break;
