@@ -6,15 +6,15 @@ class SilverfishPet extends Pets {
 
 	const NETWORK_ID = 39;
 
-	public $width = 0.6;
-	public $height = 0.6;
-	
+    public $width = 0.7;
+    public $height = 0.7;
+
 	public function getName() {
-		return "SilverfishPet";
+		return "Silverfish";
 	}
 
 	public function getSpeed() {
-		return 1.5;
+		return 1.4;
 	}
 	
 
