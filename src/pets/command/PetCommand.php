@@ -130,12 +130,22 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
+						case "ocelot":
+							if ($sender->hasPermission("pets.type.ocelot")){
+								$this->main->changePet($sender, "OcelotPet");
+								$sender->sendMessage("Your pet has changed to Ocelot!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Ocelot pet!");
+								return true;
+							}
+						break;
 							}
 							}
 							break;
 						default:
 							$sender->sendMessage("/pet type [type]");
-							$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silerfish");
+							$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silerfish, ocelot");
 						return true;
 					}
 				}
