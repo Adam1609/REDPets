@@ -82,28 +82,32 @@ class main extends PluginBase implements Listener {
  			switch ($type){
  				case "WolfPet":
  				break;
+ 				
  				case "ChickenPet":
  				break;
+ 				
  				case "PigPet":
  				break;
+ 				
  				case "BlazePet":
-
  				break;
+ 				
  				case "MagmaPet":
- 				
 				break;
+				
  				case "RabbitPet":
-				
 				break;
+				
  				case "BatPet":
-				
 				break;
+				
  				case "SilverfishPet":
+ 				break;
  				
- 				
+ 				case "OcelotPet"
  				break;
  				default:
- 					$pets = array("ChickenPet", "PigPet", "WolfPet", "BlazePet", "RabbitPet", "BatPet","SilverfishPet");
+ 					$pets = array("ChickenPet", "PigPet", "WolfPet", "BlazePet", "RabbitPet", "BatPet","SilverfishPet", "OcelotPet");
  					$type = $pets[rand(0, 3)];
  			}
 			$pet = $this->create($player,$type, $source);
