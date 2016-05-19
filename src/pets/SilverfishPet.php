@@ -2,7 +2,7 @@
 
 namespace pets;
 
-class Silverfish extends Pets {
+class SilverfishPet extends Pets {
 
 	const NETWORK_ID = 39;
 
@@ -10,7 +10,7 @@ class Silverfish extends Pets {
 	public $height = 0.75;
 	
 	public function getName() {
-		return "SilverFish";
+		return "SilverFishPet";
 	}
 
 	public function getSpeed() {
