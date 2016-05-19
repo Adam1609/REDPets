@@ -38,9 +38,9 @@ class PetCommand extends PluginCommand {
 			case "help":
 				if($sender->hasPermission('pet.command.help')){
 				$sender->sendMessage("§e======PetHelp======");
-				$sender->sendMessage("§b/pets: Create your Pet");
-				$sender->sendMessage("§b/pets type [type]: Change your Pet");
-				$sender->sendMessage("§b/pets name [petname]: Name your Pet");
+				$sender->sendMessage("§b/pets to Spawn your Pet");
+				$sender->sendMessage("§b/pets type [type]");
+				$sender->sendMessage("§b/pets name [petname]");
 				return true;
 				}else{$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
 					    }
@@ -122,26 +122,32 @@ class PetCommand extends PluginCommand {
 						break;
 						case "siverfish":
 							if ($sender->hasPermission("pets.type.silverfish")){
-								$this->main->changePet($sender, "SilverFishPet");
-								$sender->sendMessage("Your pet has changed to SilverFish!");
+								$this->main->changePet($sender, "SiverFishPet");
+								$sender->sendMessage("Your pet has changed to SiverFish!");
 								return true;
 							}else{
-								$sender->sendMessage("You do not have permission for SilverFish pet!");
+								$sender->sendMessage("You do not have permission for SiverFish pet!");
 								return true;
 							}
+						break;
+						case "ocelot":
+							if ($sender->hasPermission("pets.type.ocelot")){
+								$this->main->changePet($sender, "OcelotPet");
+								$sender->sendMessage("Your pet has changed to Ocelot!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for ocelot pet!");
+								return true;
 							}
-							break;
-							}
-							break;
+						break;
+					}
+				}
+						break;
 						default:
 							$sender->sendMessage("/pet type [type]");
-							$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silverfish");
+							$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silverfish, ocelot");
 						return true;
 					}
 				}
-			break;
 		}
 		return true;
-	}
-
-}
