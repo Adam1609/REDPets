@@ -118,17 +118,6 @@ class PetCommand extends PluginCommand {
 							}else{
 								$sender->sendMessage("You do not have permission for bat pet!");
 								return true;
-							}
-						break;
-						case "siverfish":
-							if ($sender->hasPermission("pets.type.silverfish")){
-								$this->main->changePet($sender, "SilverfishPet");
-								$sender->sendMessage("Your pet has changed to SilverFish!");
-								return true;
-							}else{
-								$sender->sendMessage("You do not have permission for Sliverfish pet!");
-								return true;
-							}
 						break;
 						case "ocelot":
 							if ($sender->hasPermission("pets.type.ocelot")){
