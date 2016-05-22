@@ -5,7 +5,6 @@ namespace pets\command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pets\main;
-use pocketmine\utils\TextFormat;
 
 class PetCommand extends PluginCommand {
 
@@ -21,10 +20,18 @@ class PetCommand extends PluginCommand {
 	public function execute(CommandSender $sender, $currentAlias, array $args) {
 	
 		if (!isset($args[0])) {
-			$this->main->togglePet($sender);
+			$sender->sendMessage("Please use /pet help");
 			return true;
 		}
 		switch (strtolower($args[0])){
+			case "toggle":
+				if ($sender->hasPermission('pets.command.toggle')){
+				$this->main->togglePet($sender);
+				return true;
+				}else{$sender->sendMessage("§4You do not have permission to toggle pet");
+				}
+				return true;
+			break;
 			case "name":
 			case "setname":
 				if (isset($args[1])){
@@ -35,12 +42,30 @@ class PetCommand extends PluginCommand {
 				}
 				return true;
 			break;
+			case "list":
+				if($sender->hasPermission('pets.command.list')){
+				$sender->sendMessage("§e======Pets List======");
+				$sender->sendMessage("§e§ldog / wolf");
+				$sender->sendMessage("§e§lblaze");
+				$sender->sendMessage("§e§lpig");
+				$sender->sendMessage("§e§lchicken");
+				$sender->sendMessage("§e§lrabbit");
+				$sender->sendMessage("§e§lmagma");
+				$sender->sendMessage("§e§lbat");
+				$sender->sendMessage("§e§lsilverfish");
+				$sender->sendMessage("§e§lcat / ocelot");
+				return true;
+				}else{$sender->sendMessage("§4You do not have permission to use this command");
+					    }
+				return true;
+			break;
 			case "help":
-				if($sender->hasPermission('pet.command.help')){
+				if($sender->hasPermission('pets.command.help')){
 				$sender->sendMessage(TextFormat::Yellow."======PetHelp======");
-				$sender->sendMessage(TextFormat::AQUA."/pets to Spawn your Pet");
+				$sender->sendMessage(TextFormat::AQUA."/pets toggle - on/off your Pet");
 				$sender->sendMessage(TextFormat::AQUA."/pets type [type]");
 				$sender->sendMessage(TextFormat::AQUA."/pets name [petname]");
+				$sender->sendMessage(TextFormat::AQUA."/pets list - list of all pets");
 				return true;
 				}else{$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
 					    }
@@ -146,7 +171,7 @@ class PetCommand extends PluginCommand {
 						break;
 						default:
 							$sender->sendMessage("/pet type [type]");
-							$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silverfish, ocelot");
+							$sender->sendMessage("use /pets list to see available pet types");
 						return true;
 					}
 				}
