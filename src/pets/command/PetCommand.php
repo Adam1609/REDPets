@@ -14,31 +14,24 @@ class PetCommand extends PluginCommand {
 		);
 		$this->main = $main;
 		$this->setPermission("pets.command");
-		$this->setAliases(array("pet"));
 	}
 
 	public function execute(CommandSender $sender, $currentAlias, array $args) {
 	
 		if (!isset($args[0])) {
-			$sender->sendMessage("Please use /pet help");
+			$sender->sendMessage("Please use /pets help");
 			return true;
 		}
 		switch (strtolower($args[0])){
-			case "toggle":
-				if ($sender->hasPermission('pets.command.toggle')){
-				$this->main->togglePet($sender);
-				return true;
-				}else{$sender->sendMessage("§4You do not have permission to toggle pet");
-				}
-				return true;
-			break;
 			case "name":
-			case "setname":
 				if (isset($args[1])){
 					unset($args[0]);
 					$name = implode(" ", $args);
 					$this->main->getPet($sender->getName())->setNameTag($name);
 					$sender->sendMessage("Set Name to ".$name);
+				}
+				else { 
+				$sender->sendMessage("Usage /pets name (new name) : change the name")
 				}
 				return true;
 			break;
@@ -55,8 +48,10 @@ class PetCommand extends PluginCommand {
 				$sender->sendMessage("§e§lsilverfish");
 				$sender->sendMessage("§e§lcat / ocelot");
 				return true;
-				}else{$sender->sendMessage("§4You do not have permission to use this command");
-					    }
+				}
+				else{
+				$sender->sendMessage("§4You do not have permission to use this command");
+				 }
 				return true;
 			break;
 			case "help":
@@ -67,8 +62,10 @@ class PetCommand extends PluginCommand {
 				$sender->sendMessage(TextFormat::AQUA."/pets name [petname]");
 				$sender->sendMessage(TextFormat::AQUA."/pets list - list of all pets");
 				return true;
-				}else{$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
-					    }
+				}
+				else{
+				$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
+				 }
 				return true;
 			break;
 			case "type":
@@ -168,8 +165,7 @@ class PetCommand extends PluginCommand {
 						break;
 					}
 				}
-						break;
-						default:
+					else {
 							$sender->sendMessage("/pet type [type]");
 							$sender->sendMessage("use /pets list to see available pet types");
 						return true;
@@ -177,4 +173,4 @@ class PetCommand extends PluginCommand {
 				}
 		}
 		return true;
-
+}
