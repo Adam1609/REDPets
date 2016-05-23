@@ -1,7 +1,7 @@
 name: MysU&GlxPet_v1.0
-author: Adam1609
+author: Adam1609 
 description: A fork of YaBoiBalAnce with an amazing support! Work with Genisys and Imagicalmine
-version: 1.0
+version: 1.0.1
 main: pets\main
 api: [2.0.0] 
 commands:
