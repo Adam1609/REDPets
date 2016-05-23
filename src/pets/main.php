@@ -117,7 +117,7 @@ class main extends PluginBase implements Listener {
  		}
 	}
 
-	public function onPlayerQuit(player $player) {
+	public function clearPet(player $player) {
 		$player->getPlayer();
 		$pet = $player->getPet();
 		if (!is_null($pet)) {
@@ -125,7 +125,7 @@ class main extends PluginBase implements Listener {
 		}
 	}
 	//test clear pets
-	public function Clearpet(PlayerQuitEvent $event) {
+	public function onPlayerQuit(PlayerQuitEvent $event) {
 		$player = $event->getPlayer();
 		$pet = $player->getPet();
 		if (!is_null($pet)) {
