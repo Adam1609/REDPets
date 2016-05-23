@@ -110,21 +110,28 @@ class main extends PluginBase implements Listener {
 				
  				default:
  					$pets = array("ChickenPet", "PigPet", "WolfPet", "BlazePet", "RabbitPet", "BatPet","SilverfishPet", "OcelotPet");
- 					$type = $pets[rand(0, 3)];
+ 					$type = $pets[rand(0, 7)];
  			}
 			$pet = $this->create($player,$type, $source);
 			return $pet;
  		}
 	}
 
-	public function onPlayerQuit(PlayerQuitEvent $event) {
+	public function onPlayerQuit(player $player) {
+		$player->getPlayer();
+		$pet = $player->getPet();
+		if (!is_null($pet)) {
+			$this->disablePet($player);
+		}
+	}
+	//test clear pets
+	public function Clearpet(PlayerQuitEvent $event) {
 		$player = $event->getPlayer();
 		$pet = $player->getPet();
 		if (!is_null($pet)) {
 			$this->disablePet($player);
 		}
 	}
-	
 	/**
 	 * Get last damager name if it's another player
 	 * 
