@@ -170,6 +170,12 @@ class PetCommand extends PluginCommand {
 							$sender->sendMessage("use /pets list to see available pet types");
 						return true;
 					}
+					//test clear pet
+				case "clear":
+					$this->main->togglePet($sender);
+					$sender->sendMessage("Clear your pets");
+					return true;
+				break;
 				}
 		}
 		return true;
