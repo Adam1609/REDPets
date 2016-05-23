@@ -6,6 +6,9 @@ class RabbitPet extends Pets {
 
 	const NETWORK_ID = 18;
 	
+	const DATA_RABBIT_TYPE = 18;
+	const DATA_JUMP_TYPE = 19;
+	
 	const TYPE_WHITE = 1;
 
 	public $width = 0.5;

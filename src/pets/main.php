@@ -35,6 +35,10 @@ class main extends PluginBase implements Listener {
 		Entity::registerEntity(PigPet::class);
 		Entity::registerEntity(BlazePet::class);
 		Entity::registerEntity(MagmaPet::class);
+		Entity::registerEntity(RabbitPet::class);
+		Entity::registerEntity(BatPet::class);
+		Entity::registerEntity(SilverfishPet::class);
+		Entity::registerEntity(OcelotPet::class);
 		//Entity::registerEntity(BlockPet::class);
 		//$server->getScheduler()->scheduleRepeatingTask(new task\PetsTick($this), 20*60);//run each minute for random pet messages
 		//$server->getScheduler()->scheduleRepeatingTask(new task\SpawnPetsTick($this), 20);
@@ -79,25 +83,48 @@ class main extends PluginBase implements Listener {
  			switch ($type){
  				case "WolfPet":
  				break;
+				
  				case "ChickenPet":
  				break;
+				
  				case "PigPet":
  				break;
+				
  				case "BlazePet":
-
  				break;
+				
  				case "MagmaPet":
- 				
+				break;
+				
+ 				case "RabbitPet":
+				break;
+				
+ 				case "BatPet":
+				break;
+				
+ 				case "SilverfishPet":
  				break;
+				
+				case "OcelotPet":
+ 				break;
+				
  				default:
- 					$pets = array("ChickenPet", "PigPet","WolfPet","BlazePet");
- 					$type = $pets[rand(0, 3)];
+ 					$pets = array("ChickenPet", "PigPet", "WolfPet", "BlazePet", "RabbitPet", "BatPet","SilverfishPet", "OcelotPet");
+ 					$type = $pets[rand(0, 7)];
  			}
 			$pet = $this->create($player,$type, $source);
 			return $pet;
  		}
 	}
 
+	public function clearPet(player $player) {
+		$player->getPlayer();
+		$pet = $player->getPet();
+		if (!is_null($pet)) {
+			$this->disablePet($player);
+		}
+	}
+	//test clear pets
 	public function onPlayerQuit(PlayerQuitEvent $event) {
 		$player = $event->getPlayer();
 		$pet = $player->getPet();
@@ -105,7 +132,6 @@ class main extends PluginBase implements Listener {
 			$this->disablePet($player);
 		}
 	}
-	
 	/**
 	 * Get last damager name if it's another player
 	 * 
