@@ -172,7 +172,7 @@ class PetCommand extends PluginCommand {
 					}
 					//test clear pet
 				case "clear":
-					$this->main->togglePet($sender);
+					$this->main->ClearPet($sender);
 					$sender->sendMessage("Clear your pets");
 					return true;
 				break;
