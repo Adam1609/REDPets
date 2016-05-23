@@ -14,6 +14,7 @@ class PetCommand extends PluginCommand {
 		);
 		$this->main = $main;
 		$this->setPermission("pets.command");
+		$this->setAliases(array("pet"));
 	}
 
 	public function execute(CommandSender $sender, $currentAlias, array $args) {
@@ -31,7 +32,7 @@ class PetCommand extends PluginCommand {
 					$sender->sendMessage("Set Name to ".$name);
 				}
 				else { 
-				$sender->sendMessage("Usage /pets name (new name) : change the name")
+				$sender->sendMessage("Usage /pets name (new name) : change the name");
 				}
 				return true;
 			break;
@@ -175,8 +176,6 @@ class PetCommand extends PluginCommand {
 					$this->main->ClearPet($sender);
 					$sender->sendMessage("Clear your pets");
 					return true;
-				break;
 				}
 		}
-		return true;
 }
