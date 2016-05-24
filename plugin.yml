@@ -4,39 +4,3 @@ description: A fork of YaBoiBalAnce with an amazing support! Work with Genisys a
 version: 1.0.2
 main: pets\main
 api: [2.0.0] 
-commands:
- pets:
-  description: "Pets command"
-  permission: pets.commands
-  aliases: ["pets","pet"]
-permissions:
- pets.command:
-  default: op
-  description: Pets command
- pets.type.dog:
-  default: op
-  description: Pets command
- pets.type.chicken:
-  default: op
-  description: Pets command
- pets.type.pig:
-  default: op
-  description: Pets command
- pets.type.blaze:
-  default: op
-  description: Pets command
- pets.type.magma:
-  default: op
-  description: Pets command
- pets.type.rabbit:
-  default: op
-  description: Pets command
- pets.type.bat:
-  default: op
-  description: Pets command
- pets.type.silverfish:
-  default: op
-  description: Pets command
-pets.type.ocelot:
-  default: op
-  description: Pets command
