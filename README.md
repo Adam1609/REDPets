@@ -5,6 +5,8 @@ Pets plugin for MCPE Server. Work with ImagicalMine, PocketMine-MP and Genisys.
 
 - Pets followed you!
 
+- Subcommand support (will add soon!)
+
 - Name your Pets :)
  
 - Command: /pets
