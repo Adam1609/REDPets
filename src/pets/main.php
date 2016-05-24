@@ -1,3 +1,4 @@
+
 <?php
 
 namespace pets;
@@ -38,7 +39,6 @@ class main extends PluginBase implements Listener {
 		Entity::registerEntity(RabbitPet::class);
 		Entity::registerEntity(BatPet::class);
 		Entity::registerEntity(SilverfishPet::class);
-		Entity::registerEntity(OcelotPet::class);
 		//Entity::registerEntity(BlockPet::class);
 		//$server->getScheduler()->scheduleRepeatingTask(new task\PetsTick($this), 20*60);//run each minute for random pet messages
 		//$server->getScheduler()->scheduleRepeatingTask(new task\SpawnPetsTick($this), 20);
@@ -83,48 +83,35 @@ class main extends PluginBase implements Listener {
  			switch ($type){
  				case "WolfPet":
  				break;
-				
  				case "ChickenPet":
  				break;
-				
  				case "PigPet":
  				break;
-				
  				case "BlazePet":
+
  				break;
-				
  				case "MagmaPet":
+ 				
 				break;
-				
  				case "RabbitPet":
-				break;
 				
+				break;
  				case "BatPet":
+				
 				break;
-				
  				case "SilverfishPet":
+ 				
+ 				
  				break;
-				
-				case "OcelotPet":
- 				break;
-				
  				default:
- 					$pets = array("ChickenPet", "PigPet", "WolfPet", "BlazePet", "RabbitPet", "BatPet","SilverfishPet", "OcelotPet");
- 					$type = $pets[rand(0, 7)];
+ 					$pets = array("ChickenPet", "PigPet", "WolfPet", "BlazePet", "RabbitPet", "BatPet","SilverfishPet");
+ 					$type = $pets[rand(0, 6)];
  			}
 			$pet = $this->create($player,$type, $source);
 			return $pet;
  		}
 	}
 
-	public function clearPet(player $player) {
-		$player->getPlayer();
-		$pet = $player->getPet();
-		if (!is_null($pet)) {
-			$this->disablePet($player);
-		}
-	}
-	//test clear pets
 	public function onPlayerQuit(PlayerQuitEvent $event) {
 		$player = $event->getPlayer();
 		$pet = $player->getPet();
@@ -132,6 +119,7 @@ class main extends PluginBase implements Listener {
 			$this->disablePet($player);
 		}
 	}
+	
 	/**
 	 * Get last damager name if it's another player
 	 * 
@@ -153,29 +141,30 @@ class main extends PluginBase implements Listener {
 	
 	public function togglePet(Player $player){
 		if (isset(self::$pet[$player->getName()])){
-			self::$pet[$player->getName()]->close();
+			self::$pet[$player->getName()]->Fastclose();
 			unset(self::$pet[$player->getName()]);
 			$player->sendMessage("Pet Disapeared");
-				
+		
 			return;
 		}
+		
 		self::$pet[$player->getName()] = $this->createPet($player, "");
 		$player->sendMessage("Enabled Pet!");
+	
 	}
 	
 	public function disablePet(Player $player){
+		$player->getPlayer();
 		if (isset(self::$pet[$player->getName()])){
 			self::$pet[$player->getName()]->fastClose();
 			unset(self::$pet[$player->getName()]);
 		}
+		
 	}
 	
 	public function changePet(Player $player, $newtype){
 		$type = $newtype;
-		if (isset(self::$pet[$player->getName()])){
-			$this->getPet($player->getName())->close();
-			unset(self::$pet[$player->getName()]);
-		}
+		$this->disablePet($player);
 		self::$pet[$player->getName()] = $this->createPet($player, $newtype);
 	}
 	
