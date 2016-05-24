@@ -5,6 +5,7 @@ namespace pets\command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pets\main;
+use pocketmine\utils\TextFormat as TF;
 
 class PetCommand extends PluginCommand {
 
@@ -20,7 +21,7 @@ class PetCommand extends PluginCommand {
 	public function execute(CommandSender $sender, $currentAlias, array $args) {
 	
 		if (!isset($args[0])) {
-			$sender->sendMessage("Please use /pets help");
+			$this->main->togglePet($sender);
 			return true;
 		}
 		switch (strtolower($args[0])){
@@ -31,11 +32,9 @@ class PetCommand extends PluginCommand {
 					$this->main->getPet($sender->getName())->setNameTag($name);
 					$sender->sendMessage("Set Name to ".$name);
 				}
-				else { 
-				$sender->sendMessage("Usage /pets name (new name) : change the name");
-				}
 				return true;
 			break;
+			
 			case "list":
 				if($sender->hasPermission('pets.command.list')){
 				$sender->sendMessage("§e======Pets List======");
@@ -55,24 +54,23 @@ class PetCommand extends PluginCommand {
 				 }
 				return true;
 			break;
+			
 			case "help":
-				if($sender->hasPermission('pets.command.help')){
-				$sender->sendMessage(TextFormat::Yellow."======PetHelp======");
-				$sender->sendMessage(TextFormat::AQUA."/pets toggle - on/off your Pet");
-				$sender->sendMessage(TextFormat::AQUA."/pets type [type]");
-				$sender->sendMessage(TextFormat::AQUA."/pets name [petname]");
-				$sender->sendMessage(TextFormat::AQUA."/pets list - list of all pets");
+				if($sender->hasPermission('pet.command.help')){
+				$sender->sendMessage("§e======PetHelp======");
+				$sender->sendMessage("§b/pets to enable or disable your pet");
+				$sender->sendMessage("§b/pets type [type] to change your pet");
+				$sender->sendMessage("§b/pets name [new name] to change pet's name");
+				$sender->sendMessage("§b/pets list : to show list pets");
 				return true;
-				}
-				else{
-				$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
-				 }
+				}else{$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
+					    }
 				return true;
 			break;
+			
 			case "type":
 				if (isset($args[1])){
 					switch ($args[1]){
-						case "wolf":
 						case "dog":
 							if ($sender->hasPermission("pets.type.dog")){
 								$this->main->changePet($sender, "WolfPet");
@@ -83,6 +81,7 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
+						
 						case "chicken":
 							if ($sender->hasPermission("pets.type.chicken")){
 								$this->main->changePet($sender, "ChickenPet");
@@ -93,16 +92,7 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
-						case "pig":
-							if ($sender->hasPermission("pets.type.pig")){
-								$this->main->changePet($sender, "PigPet");
-								$sender->sendMessage("Your pet has changed to Pig!");
-								return true;
-							}else{
-								$sender->sendMessage("You do not have permission for pig pet!");
-								return true;
-							}
-						break;
+						
 						case "blaze":
 							if ($sender->hasPermission("pets.type.blaze")){
 								$this->main->changePet($sender, "BlazePet");
@@ -123,6 +113,7 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
+						
 						case "rabbit":
 							if ($sender->hasPermission("pets.type.rabbit")){
 								$this->main->changePet($sender, "RabbitPet");
@@ -133,6 +124,7 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
+						
 						case "bat":
 							if ($sender->hasPermission("pets.type.bat")){
 								$this->main->changePet($sender, "BatPet");
@@ -143,39 +135,41 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
-						case "silverfish":
-							if ($sender->hasPermission("pets.type.silverfish")){
+						
+						case "Pig":
+							if ($sender->hasPermission("pets.type.pig")){
+								$this->main->changePet($sender, "PigPet");
+								$sender->sendMessage("Your pet has changed to Pig!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for SiverFish pet!");
+								return true;
+							}
+						break;
+						
+						case "Silverfish":
+							if ($sender->hasPermission("pets.type.silerfish")){
 								$this->main->changePet($sender, "SilverfishPet");
-								$sender->sendMessage("Your pet has changed to SilverFish!");
+								$sender->sendMessage("Your pet has changed to SiverFish!");
 								return true;
 							}else{
-								$sender->sendMessage("You do not have permission for SilverFish pet!");
-								return true;
-							}
-						break;
-						case "ocelot":
-						case "cat":
-							if ($sender->hasPermission("pets.type.ocelot")){
-								$this->main->changePet($sender, "OcelotPet");
-								$sender->sendMessage("Your pet has changed to Ocelot!");
-								return true;
-							}else{
-								$sender->sendMessage("You do not have permission for ocelot pet!");
+								$sender->sendMessage("You do not have permission for SiverFish pet!");
 								return true;
 							}
 						break;
 					}
+					
 				}
-					else {
-							$sender->sendMessage("/pet type [type]");
-							$sender->sendMessage("use /pets list to see available pet types");
-						return true;
-					}
-					//test clear pet
-				case "clear":
-					$this->main->ClearPet($sender);
-					$sender->sendMessage("Clear your pets");
+				else{
+					$sender->sendMessage("/pet type [type]");
+					$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silerfish");
 					return true;
-				}
+					}
+				return true;
+			break;
 		}
+		
+		return true;
+	}
+
 }
