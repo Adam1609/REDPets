@@ -47,6 +47,7 @@ class PetCommand extends PluginCommand {
 				$sender->sendMessage("§e§lbat");
 				$sender->sendMessage("§e§lsilverfish");
 				$sender->sendMessage("§e§lcat / ocelot");
+				$sender->sendMessage("§e§lslime")
 				return true;
 				}
 				else{
@@ -136,7 +137,7 @@ class PetCommand extends PluginCommand {
 							}
 						break;
 						
-						case "Pig":
+						case "pig":
 							if ($sender->hasPermission("pets.type.pig")){
 								$this->main->changePet($sender, "PigPet");
 								$sender->sendMessage("Your pet has changed to Pig!");
@@ -147,7 +148,7 @@ class PetCommand extends PluginCommand {
 							}
 						break;
 						
-						case "Silverfish":
+						case "silverfish":
 							if ($sender->hasPermission("pets.type.silerfish")){
 								$this->main->changePet($sender, "SilverfishPet");
 								$sender->sendMessage("Your pet has changed to SiverFish!");
@@ -157,12 +158,34 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
+						
+						case "ocelot":
+							if ($sender->hasPermission("pets.type.ocelot")){
+								$this->main->changePet($sender, "OcelotPet");
+								$sender->sendMessage("Your pet has changed to Ocelot!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Ocelot pet!");
+								return true;
+							}
+						break;
+						
+						case "Slime":
+							if ($sender->hasPermission("pets.type.slime")){
+								$this->main->changePet($sender, "SlimePet");
+								$sender->sendMessage("Your pet has changed to Slime!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Slime pet!");
+								return true;
+							}
+						break;
 					}
 					
 				}
 				else{
 					$sender->sendMessage("/pet type [type]");
-					$sender->sendMessage("Types: blaze, pig, chicken, dog, rabbit, magma, bat, silerfish");
+					$sender->sendMessage("Types: ocelot, slime,blaze, pig, chicken, dog, rabbit, magma, bat, silverfish");
 					return true;
 					}
 				return true;
