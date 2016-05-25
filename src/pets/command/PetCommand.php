@@ -21,8 +21,14 @@ class PetCommand extends PluginCommand {
 	public function execute(CommandSender $sender, $currentAlias, array $args) {
 	
 		if (!isset($args[0])) {
-			$this->main->togglePet($sender);
-			return true;
+			if($sender->hasPermission('pets.command')){
+				$this->main->togglePet($sender);
+				return true;
+			}
+			else{
+				$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
+				return true;
+			}
 		}
 		switch (strtolower($args[0])){
 			case "name":
@@ -64,9 +70,10 @@ class PetCommand extends PluginCommand {
 				$sender->sendMessage("§b/pets name [new name] to change pet's name");
 				$sender->sendMessage("§b/pets list : to show list pets");
 				return true;
-				}else{$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
-					    }
-				return true;
+				}else{
+					$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
+				}
+					return true;
 			break;
 			
 			case "type":
@@ -196,3 +203,4 @@ class PetCommand extends PluginCommand {
 	}
 
 }
+
