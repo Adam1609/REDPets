@@ -14,7 +14,7 @@ class BlazePet extends Pets {
 	}
 
 	public function getSpeed() {
-		return 0.5;
+		return 1.3;
 	}
 
 }
