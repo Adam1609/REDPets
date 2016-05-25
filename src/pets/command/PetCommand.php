@@ -47,7 +47,7 @@ class PetCommand extends PluginCommand {
 				$sender->sendMessage("§e§lbat");
 				$sender->sendMessage("§e§lsilverfish");
 				$sender->sendMessage("§e§lcat / ocelot");
-				$sender->sendMessage("§e§lslime")
+				$sender->sendMessage("§e§lslime");
 				return true;
 				}
 				else{
