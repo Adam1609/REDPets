@@ -5,7 +5,7 @@ version: 1.0.4
 main: pets\main
 api: 2.0.0
 
-Permission:
+Permissions:
   pets.command.*:
     default: op
     children:
