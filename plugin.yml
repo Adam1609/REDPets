@@ -1,6 +1,29 @@
 name: MysU&GlxPet
-author: Adam1609&Justin&Soul1st
+author: Adam1609&Justin //soul1st is support code not author
 description: A fork of YaBoiBalAnce with an amazing support! Work with Genisys and Imagicalmine
-version: 1.0.3 
+version: 1.0.4
 main: pets\main
 api: 2.0.0
+
+Permission:
+  pets.command.*:
+    default: op
+    children:
+      pets.command.list:
+        default: true
+      pets.command.help:
+        default: true
+  pets.type.*:
+    default: op
+    children:
+      pets.type.dog:
+      pets.type.chicken:
+      pets.type.slime:
+      pets.type.ocelot:
+      pets.type.pig:
+      pets.type.magma:
+      pets.type.rabbit:
+      pets.type.bat:
+      pet.type.silverfish:
+      pets.type.blaze:
+  
