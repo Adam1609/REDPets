@@ -118,7 +118,7 @@ class main extends PluginBase implements Listener {
  				case "CreeperPet":
  				break;
  				case "GhastPet":
- 				break:
+ 				break;
  				default:
  					$pets = array("GhastPet", "EndermanPet", "CowPet", "CaveSpiderPet", "BlockPet", "CreeperPet", "OcelotPet", "MagmaPet", "SlimePet", "ChickenPet", "PigPet", "WolfPet", "BlazePet", "RabbitPet", "BatPet","SilverfishPet");
  					$type = $pets[rand(0, 15)];
