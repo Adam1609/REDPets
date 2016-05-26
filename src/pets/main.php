@@ -110,7 +110,7 @@ class main extends PluginBase implements Listener {
  				case "CowPet":
  				break;
  				case "EndermanPet":
- 				break:
+ 				break;
  				case "CaveSpiderPet":
  				break;
  				case "BlockPet":
