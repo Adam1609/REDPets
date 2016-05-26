@@ -24,6 +24,11 @@ Permissions:
       pets.type.magma:
       pets.type.rabbit:
       pets.type.bat:
-      pet.type.silverfish:
+      pets.type.silverfish:
       pets.type.blaze:
+      pets.type.creeper:
+      pets.type.enderman:
+      pets.type.ghast:
+      pets.type.block:
+      pets.type.cow
   
