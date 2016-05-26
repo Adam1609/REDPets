@@ -6,8 +6,8 @@ class GhastPet extends Pets {
 
 	const NETWORK_ID = 41;
 
-	public $width = 6;
-	public $height = 6;
+	public $width = 1;
+	public $height = 1;
 
 	public function getName() {
 		return "GhastPet";
