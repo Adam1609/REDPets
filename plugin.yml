@@ -30,5 +30,6 @@ Permissions:
       pets.type.enderman:
       pets.type.ghast:
       pets.type.block:
-      pets.type.cow
+      pets.type.cow:
+      pets.type.cavespider:
   
