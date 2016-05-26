@@ -157,7 +157,7 @@ class PetCommand extends PluginCommand {
 						break;
 						
 						case "silverfish":
-							if ($sender->hasPermission("pets.type.silerfish")){
+							if ($sender->hasPermission("pets.type.silverfish")){
 								$this->main->changePet($sender, "SilverfishPet");
 								$sender->sendMessage("Your pet has changed to SiverFish!");
 								return true;
@@ -202,7 +202,7 @@ class PetCommand extends PluginCommand {
 						
 						case "cavespider":
 							if ($sender->hasPermission("pets.type.cavespider")){
-								$this->main->changePet($sender, "CavespiderPet");
+								$this->main->changePet($sender, "CaveSpiderPet");
 								$sender->sendMessage("Your pet has changed to Cavespider!");
 								return true;
 							}else{
@@ -233,7 +233,7 @@ class PetCommand extends PluginCommand {
 						break;
 						case "enderman":
 							if ($sender->hasPermission("pets.type.enderman")){
-								$this->main->changePet($sender, "endermanPet");
+								$this->main->changePet($sender, "EndermanPet");
 								$sender->sendMessage("Your pet has changed to endeman pet");
 								return true;
 							}else{
