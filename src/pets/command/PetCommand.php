@@ -70,10 +70,11 @@ class PetCommand extends PluginCommand {
 				$sender->sendMessage("§b/pets name [new name] to change pet's name");
 				$sender->sendMessage("§b/pets list : to show list pets");
 				return true;
-				}else{
+				}
+				else{
 					$sender->sendMessage(TextFormat::RED."You do not have permission to use this command");
 				}
-					return true;
+				return true;
 			break;
 			
 			case "type":
@@ -177,7 +178,7 @@ class PetCommand extends PluginCommand {
 							}
 						break;
 						
-						case "Slime":
+						case "slime":
 							if ($sender->hasPermission("pets.type.slime")){
 								$this->main->changePet($sender, "SlimePet");
 								$sender->sendMessage("Your pet has changed to Slime!");
@@ -187,12 +188,76 @@ class PetCommand extends PluginCommand {
 								return true;
 							}
 						break;
+						
+						case "block":
+							if ($sender->hasPermission("pets.type.block")){
+								$this->main->changePet($sender, "BlockPet");
+								$sender->sendMessage("Your pet has changed to Block");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Block pet!");
+								return true;
+							}
+						break;
+						
+						case "cavespider":
+							if ($sender->hasPermission("pets.type.cavespider")){
+								$this->main->changePet($sender, "CavespiderPet");
+								$sender->sendMessage("Your pet has changed to Cavespider!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Spider pet!");
+								return true;
+							}
+						break;
+						
+						case "cow":
+							if ($sender->hasPermission("pets.type.cow")){
+								$this->main->changePet($sender, "CowPet");
+								$sender->sendMessage("Your pet has changed to Cow!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Cow pet!");
+								return true;
+							}
+						break;
+						case "Creeper":
+							if ($sender->hasPermission("pets.type.Creeper")){
+								$this->main->changePet($sender, "CreeperPet");
+								$sender->sendMessage("Your pet has changed to Creeper!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Creeper pet!");
+								return true;
+							}
+						break;
+						case "enderman":
+							if ($sender->hasPermission("pets.type.enderman")){
+								$this->main->changePet($sender, "endermanPet");
+								$sender->sendMessage("Your pet has changed to endeman pet");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Enderman pet!");
+								return true;
+							}
+						break;
+						
+						case "ghast":
+							if ($sender->hasPermission("pets.type.ghast")){
+								$this->main->changePet($sender, "GhastPet");
+								$sender->sendMessage("Your pet has changed to Ghast!");
+								return true;
+							}else{
+								$sender->sendMessage("You do not have permission for Ghast pet!");
+								return true;
+							}
+						break;
 					}
 					
 				}
 				else{
 					$sender->sendMessage("/pet type [type]");
-					$sender->sendMessage("Types: ocelot, slime,blaze, pig, chicken, dog, rabbit, magma, bat, silverfish");
+					$sender->sendMessage("•> ghast, enderman, creeper,cow,cavespider,block, ocelot, slime,blaze, pig, chicken, dog, rabbit, magma, bat, silverfish");
 					return true;
 					}
 				return true;
