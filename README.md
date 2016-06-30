@@ -1,4 +1,6 @@
 # MysUPets
+
+[![Join the chat at https://gitter.im/Adam1609/MysUPets](https://badges.gitter.im/Adam1609/MysUPets.svg)](https://gitter.im/Adam1609/MysUPets?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Pets plugin for MCPE Server. Work with ImagicalMine, PocketMine-MP and Genisys.
 
 - All kinds of animal (Ocelot, Wolf, .... ) (need supportive for Entity)
