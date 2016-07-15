@@ -6,6 +6,8 @@ Pets plugin for MCPE Server. Work with ImagicalMine, PocketMine-MP and Genisys.
 - All kinds of animal (Ocelot, Wolf, .... ) (need supportive for Entity)
 
 - Pets followed you!
+- 
+- Supportive on Economy (maybe?)
 
 - Subcommand support (will add soon!)
 
