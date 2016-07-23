@@ -16,5 +16,6 @@ Pets plugin for MCPE Server. Work with ImagicalMine, PocketMine-MP and Genisys.
 - Command: /pets
 
 - This plugin is taken from LbCore, and a little fix to standalone public plugin! 
+- RIGHT NOW I NEED HELP WITH ECONOMY SYSTEM AND BUG FIXER FOR PETS PLUGIN!
 
 
