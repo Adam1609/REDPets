@@ -7,15 +7,11 @@ Pets plugin for MCPE Server. Work with ImagicalMine, PocketMine-MP and Genisys.
 
 - Pets followed you!
 
-- Supportive on Economy (maybe?)
-
-- Subcommand support (will add soon!)
-
 - Name your Pets :)
  
 - Command: /pets
 
 - This plugin is taken from LbCore, and a little fix to standalone public plugin! 
-# RIGHT NOW I NEED HELP WITH ECONOMY SYSTEM AND BUG FIXER FOR PETS PLUGIN!
+# This is the final release of REDPets, any contribution will be very welcome!
 
 
